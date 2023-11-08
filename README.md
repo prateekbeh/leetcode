@@ -10,7 +10,7 @@ int main(){
 	
 	return 0;
 }
-
+```
 
 ## K-way merge
 	used to merge K sorted data structures.
