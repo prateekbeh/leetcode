@@ -121,7 +121,7 @@ for(int i = 0 ; i < nums.size() ; i++){
 
 ## Fast and Slow pointer
 
-The pointers can be used to traverse the array or list in either direction, however, one moves faster than the other. Generally, the slow pointer moves forward by a factor of one, and the fast pointer moves by a factor of two in each step. However, <mark> the speed can be adjusted according to the problem statement </mark>
+The pointers can be used to traverse the array or list in either direction, however, one moves faster than the other. Generally, the slow pointer moves forward by a factor of one, and the fast pointer moves by a factor of two in each step. However, ** the speed can be adjusted according to the problem statement **
 
 
  
