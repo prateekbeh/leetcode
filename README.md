@@ -107,17 +107,22 @@ Test case : -1 - 1 1 , k = 0; Sliding window will not be able to determine the s
 Use Hashmap
 Maintain a prefixSum var and a map to see if the prefix sum has already been encountered.
 if prefixSum - k is seen in the map that means the sum l exists between some i and j.
+[ 0... i ... j]  
 ```
 for(int i = 0 ; i < nums.size() ; i++){
-            prefixSum += nums[i];
-            
-            if(freqMap.find(prefixSum - k) != freqMap.end()){
-                ans += freqMap[prefixSum - k];
-            }
-            freqMap[prefixSum]+=1;
-        }
+	prefixSum += nums[i];
+	
+	if(freqMap.find(prefixSum - k) != freqMap.end()){
+		ans += freqMap[prefixSum - k];
+	}
+	freqMap[prefixSum]+=1;
+}
 ```
-[ 0... i ... j]  
+
+## Fast and Slow pointer
+
+The pointers can be used to traverse the array or list in either direction, however, one moves faster than the other. Generally, the slow pointer moves forward by a factor of one, and the fast pointer moves by a factor of two in each step. However, <mark> the speed can be adjusted according to the problem statement </mark>
+
 
  
 ## K-way merge
