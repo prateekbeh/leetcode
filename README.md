@@ -79,7 +79,23 @@ push_heap -> Given a heap in the range [first,last-1),
 this function extends the range considered a heap to [first,last) by placing the value in (last-1) into its corresponding location within it.
 
 
+## Sliding Window
 
+Repeated DNA sequence
+	: Check for repeated sequence in a string.
+	Use rabin karp method by using hashValue;
+	For every substring of length k do the following:
+	```
+		if( i == 0 ){
+			for(int j = 0 ; j < k ; j++){
+				hashValue += nums[j] * static_cast<int> (pow(a,k-j-1));
+			}
+		}
+		else{
+			int prevHash = hashValue;
+			hashValue = ((prevHash - nums[i - 1] * static_cast<int>(pow(a, k - 1))) * a) + nums[i + k - 1];
+		}
+	```
 
 
 ## K-way merge
