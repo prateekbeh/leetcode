@@ -82,10 +82,10 @@ this function extends the range considered a heap to [first,last) by placing the
 ## Sliding Window
 
 Repeated DNA sequence
-	: Check for repeated sequence in a string.
-	Use rabin karp method by using hashValue;
-	For every substring of length k do the following:
-	```
+Check for repeated sequence in a string.
+Use rabin karp method by using hashValue;
+For every substring of length k do the following:
+```
 		if( i == 0 ){
 			for(int j = 0 ; j < k ; j++){
 				hashValue += nums[j] * static_cast<int> (pow(a,k-j-1));
@@ -95,7 +95,7 @@ Repeated DNA sequence
 			int prevHash = hashValue;
 			hashValue = ((prevHash - nums[i - 1] * static_cast<int>(pow(a, k - 1))) * a) + nums[i + k - 1];
 		}
-	```
+```
 
 
 ## K-way merge
