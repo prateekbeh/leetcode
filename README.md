@@ -40,28 +40,28 @@ DFS + BFS Patterns (2): https://lnkd.in/gd4ekfQe
 ### For comparator function check from bottom to top in case of a Priority queue (in case of tree)
 
 ```
-	bool operator()(PII below, PII above)
-    {
-        if (below.first > above.first) {  // min heap property
-            return true;  
-        }
-        else if (below.first == above.first
-                 && below.second < above.second) {   // max heap property
-            return true;
-        }
- 
-        return false;
-    }
+bool operator()(PII below, PII above)
+{
+	if (below.first > above.first) {  // min heap property
+		return true;  
+	}
+	else if (below.first == above.first
+				&& below.second < above.second) {   // max heap property
+		return true;
+	}
 
-	Output: 
-	1 20
-	1 2
-	1 1
-	100 41
-	100 21
-	100 11
-	300 2
-	300 1
+	return false;
+}
+
+Output: 
+1 20
+1 2
+1 1
+100 41
+100 21
+100 11
+300 2
+300 1
 
 ```
 if you consider array representation then the higher values will be at right and lower at the left
@@ -82,22 +82,44 @@ this function extends the range considered a heap to [first,last) by placing the
 ## Sliding Window
 
 Repeated DNA sequence
-Check for repeated sequence in a string.
+: Check for repeated sequence in a string.
 Use rabin karp method by using hashValue;
+static_cast used to cast the values to a particular data type.
+
 For every substring of length k do the following:
 ```
-		if( i == 0 ){
-			for(int j = 0 ; j < k ; j++){
-				hashValue += nums[j] * static_cast<int> (pow(a,k-j-1));
-			}
-		}
-		else{
-			int prevHash = hashValue;
-			hashValue = ((prevHash - nums[i - 1] * static_cast<int>(pow(a, k - 1))) * a) + nums[i + k - 1];
-		}
+if( i == 0 ){
+	for(int j = 0 ; j < k ; j++){
+		hashValue += nums[j] * static_cast<int> (pow(a,k-j-1));
+	}
+}
+else{
+	int prevHash = hashValue;
+	hashValue = ((prevHash - nums[i - 1] * static_cast<int>(pow(a, k - 1))) * a) + nums[i + k - 1];
+}
 ```
 
+560. Subarray sum equals K.
 
+Sliding window expects incrementing sum so this problem cannot be solved using sliding window.
+Test case : -1 - 1 1 , k = 0; Sliding window will not be able to determine the sum to be 0 ever.
+
+Use Hashmap
+Maintain a prefixSum var and a map to see if the prefix sum has already been encountered.
+if prefixSum - k is seen in the map that means the sum l exists between some i and j.
+```
+for(int i = 0 ; i < nums.size() ; i++){
+            prefixSum += nums[i];
+            
+            if(freqMap.find(prefixSum - k) != freqMap.end()){
+                ans += freqMap[prefixSum - k];
+            }
+            freqMap[prefixSum]+=1;
+        }
+```
+[ 0... i ... j]  
+
+ 
 ## K-way merge
 used to merge K sorted data structures.
 The basic idea behind the K-way merge algorithm is to repeatedly select the smallest (or largest, depending on the sorting order)
