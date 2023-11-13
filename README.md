@@ -99,7 +99,7 @@ else{
 }
 ```
 
-560. Subarray sum equals K.
+**560.** Subarray sum equals K.
 
 Sliding window expects incrementing sum so this problem cannot be solved using sliding window.
 Test case : -1 - 1 1 , k = 0; Sliding window will not be able to determine the sum to be 0 ever.
@@ -119,10 +119,45 @@ for(int i = 0 ; i < nums.size() ; i++){
 }
 ```
 
+**209** Subarray with a sum >= target.
+- Use while loop instead of if condition to increment / decrement wend.
+
+**159**
+- If used in this problem for incrementing wend. 
+- Also lamda function used.
+- 
+
+**340**  Longest substring with atmost k distinct characters.
+ - Used map to store the index of the elements.
+ - Retrieve the smallest Index and remove that from the map
+ - Another ways could be use arrays to maintain count of chracters.
+ - Use variable to maintain distince characters.
+
+
+ **424** Longest repeating character - Atmost k characters can be replaced
+ - We can use array to store the count of every variable.
+ - Get the maxCount for a character.
+ - if the window size - maxCount > k then shift the left pointer.
+
+
+
 ## Fast and Slow pointer
 
-The pointers can be used to traverse the array or list in either direction, however, one moves faster than the other. Generally, the slow pointer moves forward by a factor of one, and the fast pointer moves by a factor of two in each step. However, **the speed can be adjusted according to the problem statement**
+The pointers can be used to traverse the array or list in either direction, 
+however, one moves faster than the other. Generally, the slow pointer moves forward by a factor of one,
+and the fast pointer moves by a factor of two in each step.
+However, **the speed can be adjusted according to the problem statement**
 
+**141.** Linked List Cycle 
+Move fast pointer only if fast exists.
+**Make sure nullptr->next never happens.**
+when fast == nullptr the loop should break
+
+
+**142.** Linked List Cycle  
+Floyd Tortoise Hare algorithm.
+move hare to starting point and keep the tortoise where it was.
+move hare and tortoise at same speed now.
 
  
 ## K-way merge
