@@ -66,7 +66,7 @@ Output:
 ```
 if you consider array representation then the higher values will be at right and lower at the left
 
-### Heaps 
+# Heaps 
 
 make_heap -> Rearranges the elements in the range [first,last) in such a way that they form a heap.
 
@@ -79,7 +79,7 @@ push_heap -> Given a heap in the range [first,last-1),
 this function extends the range considered a heap to [first,last) by placing the value in (last-1) into its corresponding location within it.
 
 
-## Sliding Window
+# Sliding Window
 
 Repeated DNA sequence
 : Check for repeated sequence in a string.
@@ -101,7 +101,7 @@ else{
 
 **560.** Subarray sum equals K.
 
-Sliding window expects incrementing sum so this problem cannot be solved using sliding window.
+**Sliding window expects incrementing sum so this problem cannot be solved using sliding window.**
 Test case : -1 - 1 1 , k = 0; Sliding window will not be able to determine the sum to be 0 ever.
 
 Use Hashmap
@@ -140,8 +140,22 @@ for(int i = 0 ; i < nums.size() ; i++){
  - if the window size - maxCount > k then shift the left pointer.
 
 
+# Two pointers
 
-## Fast and Slow pointer
+**15**
+	```
+		while(cond1 && cond2) != while(cond1) { if (cond 2) } // This could enter infinite loop. write a negative condition loop !cond2 inside if.
+		while(cond1 && cond2) == while(cond1) { if (!cond 2) } //This will work.
+	```
+
+**259**
+
+lower_bound = returns smallest element greater than target , if all elem are smaller than target returns last
+			  												 if all elem are greater than target returns first
+
+
+
+# Fast and Slow pointer
 
 The pointers can be used to traverse the array or list in either direction, 
 however, one moves faster than the other. Generally, the slow pointer moves forward by a factor of one,
@@ -160,7 +174,23 @@ move hare to starting point and keep the tortoise where it was.
 move hare and tortoise at same speed now.
 
  
-## K-way merge
+**457**
+
+
+# Tree DFS
+
+**297** Serialize and Deserialize a binary tree
+
+
+
+
+
+
+# Tree BFS
+
+**102** Binary Tree Level Order 
+
+# K-way merge
 used to merge K sorted data structures.
 The basic idea behind the K-way merge algorithm is to repeatedly select the smallest (or largest, depending on the sorting order)
 element among the K input lists and add it to the output list
