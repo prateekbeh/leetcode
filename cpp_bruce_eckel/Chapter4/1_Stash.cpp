@@ -17,6 +17,7 @@ void initialize(CStash* s, int sz){
 	s->quantity = 0;
 	s->next = 0;
 	// assigning a int to a pointer . How?
+	// 0 acts as a nullptr . we can use nullptr as well.
 	s->storage = 0;
 }
 
