@@ -1,0 +1,31 @@
+HowMany2()
+	h: objectCount = 1
+Entering f()
+HowMany2(const HowMany2&)   // Copy constructor called when the argument is passed to function
+	h copy: objectCount = 2  // x comes from h so x is named as h copy
+x argument inside f()
+	h copy: objectCount = 2
+Returning from f()
+HowMany2(const HowMany2&)  // Constructor again called when returning value as after function call the value may get vanished and we reqquire to copy this to h2, so h2 comes from x which is h copy so h2 												// is h copy copy
+	h copy copy: objectCount = 3
+~HowMany2
+	h copy: objectCount = 2   // x which is h copy is destroyed after function call.
+h2 after call to f()         
+	h copy copy: objectCount = 2
+Call f() , no return value   
+HowMany2(const HowMany2&)   // Again a constructor is called when f(h) is called
+	h copy: objectCount = 3
+x argument inside f()
+	h copy: objectCount = 3
+Returning from f()
+HowMany2(const HowMany2&)
+	h copy copy: objectCount = 4
+~HowMany2
+	h copy copy: objectCount = 3    // the temporary object h copy copy is destroyed when the return value does not find any lvalue.
+~HowMany2
+	h copy: objectCount = 2   // h copy which is x is destroyed after function call to x
+After call to f()
+~HowMany2			
+	h copy copy: objectCount = 1   // hcopy copy which is stored as HowMany h2 = f(h) is destroyed
+~HowMany2
+	h: objectCount = 0   // h is destroyed.
