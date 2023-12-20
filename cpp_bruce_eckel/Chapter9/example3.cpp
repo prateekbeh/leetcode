@@ -4,7 +4,7 @@ using namespace std;
 int x = 100;
 
 class WithStatic{
-	static int x; // static initialization not allowed here. initialization after class
+	static int x; // static object within a class initialization not allowed here. initialization after class
 	static int y;
 public:
 	void print() {

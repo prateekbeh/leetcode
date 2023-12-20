@@ -84,6 +84,62 @@ int main(){
 
 ```
 
+
+char can only store values upto 128 , for unsigned char the value can be 0-255
+
+
+## Operators
+
+left shift, right shift operators -> shifts each bit to left or right specifiec by number of bits
+shifting right greater than the width of data type can cause warning message shift count >= width of type
+
+left shift and right shift can be used for right rotation and left rotation as well'
+
+```
+	unsigned char rotate_left(unsigned char val){
+		int highbit;
+		if(val & 0x80) highbit = 1;
+		else highbit = 0;
+		val <<= 1;
+		val |= highbit;
+		printBinary(val);
+		cout << (int) val << endl;
+		return val;
+	}
+```
+
+## Constant
+
+In C++, constants don't occupy storage. It's value is stored in the symbol table.
+However, if the address of const or extern is defined for const the storage is allocated
+
+### Default constructor is not created if we have defined a constructor explicitly
+
+## Static objects
+### static objects inside functions
+	1. while initializing static objects of user defined types initialization is required for the object using constructor.
+	2. static objects have internal linkage which means that it is local to the cpp file.
+	3. The definition of staic data members must occur outside the class ( no inlining is allowed) . Only static const of integral types definition is allowed inside the class
+
+## References and Copy Constructor
+
+1. A reference must be initialized when created.
+2. Once a reference is initialized to an object, it cannot be changed to refer to another object.
+3. We cannot have NULL references.
+
+	
+
+### Argument passing guidelines
+1. Always pass refernce to a function , if possible pass const reference. 
+2. The only time poassing an address isn't preferable is when you're going to do such damage to object passing by value is the only option.
+
+
+Copy constructor is only required when we want to pass an object of our class by value.
+
+
+## Sample code snippets
+
+
 ```
 	int n = s.length();
     const string c = s.substr(2,6);
@@ -238,32 +294,3 @@ int main(){
     return "NO";
 }
 ```
-
-char can only store values upto 128 , for unsigned char the value can be 0-255
-
-
-## Operators
-
-left shift, right shift operators -> shifts each bit to left or right specifiec by number of bits
-shifting right greater than the width of data type can cause warning message shift count >= width of type
-
-left shift and right shift can be used for right rotation and left rotation as well'
-
-```
-	unsigned char rotate_left(unsigned char val){
-		int highbit;
-		if(val & 0x80) highbit = 1;
-		else highbit = 0;
-		val <<= 1;
-		val |= highbit;
-		printBinary(val);
-		cout << (int) val << endl;
-		return val;
-	}
-```
-
-## Constant
-
-In C++, constants don't occupy storage. It's value is stored in the symbol table.
-However, if the address of const or extern is defined for const the storage is allocated
-
